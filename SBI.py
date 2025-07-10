@@ -8,7 +8,6 @@ from typing import Tuple
 
 # -----------------------------------------------------------------------------  
 # Helper functions
-# -----------------------------------------------------------------------------  
 
 def compute_physical_densities(Omega_m: float, H0: float, omega_b: float = 0.049
                                ) -> Tuple[float, float]:
@@ -45,9 +44,7 @@ def add_noise(Pk: np.ndarray, sigma: float, rng: np.random.Generator) -> np.ndar
     return Pk + noise
 
 # -----------------------------------------------------------------------------  
-# Dataset generation  
-# -----------------------------------------------------------------------------  
-
+# Dataset generation   
 def sample_parameters(n: int, rng: np.random.Generator) -> tuple[np.ndarray, ...]:
     """Draw *n* parameter triplets from broad uniform priors."""
     H0       = rng.uniform(60.0, 80.0, size=n)
@@ -84,8 +81,6 @@ def generate_dataset(
      # optionally include the k-modes used
     }
 
-# -----------------------------------------------------------------------------  
-# Example Usage (can be removed or replaced with your own call)  
 # -----------------------------------------------------------------------------  
 data = generate_dataset(n_obs=100, seed=42)
 for key in data:
